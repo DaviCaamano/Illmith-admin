@@ -3,26 +3,40 @@ const news = {
     to: '/'
 }
 
-const explore = {
-    name: 'Explore',
-    to: '/explore',
+const users = {
+    name: 'Users',
+    to: '/users',
 }
 
-const contactUs = {
-    name: 'Contact Us',
-    to: '/contact'
+const articles = {
+    name: 'Articles',
+    to: '/articles',
 }
 
-const kickstarter= {
-    name: 'Kickstarter',
-    to: 'http://www.kickstarter.com',
-    external: true
+const publicSite= {
+    name: 'Public Site',
+    to: process.env.REACT_APP_ENV === 'prod'? 'http://www.illmith.com': 'http://localhost:3000',
+    external_same_page: true
 }
 
-const elementArray = [
-    news,
-    explore,
-    contactUs,
-    kickstarter
-];
-export default elementArray;
+
+
+const getElements = (admin) => {
+
+    const items = [
+
+    ]
+
+    const adminItems = [
+        news,
+        users,
+        articles,
+        publicSite,
+    ];
+    if(admin){
+
+        items.push.apply(items, adminItems);
+    }
+    return items.length === 0? [publicSite]: items
+}
+export default getElements;

@@ -14,7 +14,7 @@ const NavbarUserInfo = (props) => {
         :email? email.split('@')[0]: null;
 
     return (
-        <div id={'navbar-user-widget'} className={`header-element`} >
+        <div id={'navbar-user-widget'} >
             { loggedIn
                 ?   //If Logged in
                 <UserMenuContainer

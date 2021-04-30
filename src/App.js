@@ -21,15 +21,17 @@ const App = () =>{
         <UserContextProvider>
             <AlertProvider>
                 <SplashAlertProvider>
-                    <Alert />
-                    <User />
-                    <Header />
                     <Splash />
+
                     <div id="content-plane">
                         <div className="canvas">
 
                         </div>
                     </div>
+                    <Header />
+                    <User />
+                    <Alert />
+
                 </SplashAlertProvider>
             </AlertProvider>
         </UserContextProvider>

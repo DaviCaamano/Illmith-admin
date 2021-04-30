@@ -2,7 +2,7 @@ import React from 'react';
 import '../../css/Header.css';
 
 //img
-import storystringLogo from '../../img/Logo Text.png'
+import logo from '../../img/Logo Text.png'
 
 import NavbarContainer from '../../container/header/NavContainer'
 
@@ -12,7 +12,7 @@ const Header = (props) => {
         <>
             <div id="header-top-shadow" />
             <div id="header">
-                <img id="logo" src={storystringLogo} alt={''}/>
+                <img id="logo" src={logo} alt={''}/>
                 <NavbarContainer/>
             </div>
         </>

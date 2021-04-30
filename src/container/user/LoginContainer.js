@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/users';
+import { login, flagAdmin } from '../../redux/users';
 import { useHistory } from "react-router-dom";
 
 //Components
@@ -60,6 +60,7 @@ const LoginUserContainer = (props) => {
 
             let data = resp.data;
             dispatch(login(data.email, data.username))
+            if(data.admin) dispatch(flagAdmin());
             props.setLoginCookies(data.token, data.tokenExpiration);
             props.setLoginModalVisible(false)
 
@@ -95,6 +96,8 @@ const LoginUserContainer = (props) => {
 
                 let data = resp.data
                 dispatch(login(data.email, data.username))
+                if(data.admin) dispatch(flagAdmin());
+
             }).catch((err) => {
 
                 if(err && err.response && err.response.data){

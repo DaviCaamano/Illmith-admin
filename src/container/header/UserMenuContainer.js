@@ -1,41 +1,53 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
+
+//Redux
+import store from '../../redux'
+
+//data
+import getItems from '../../data/userMenuItems';
 
 //components
 import UserMenu from '../../component/header/UserMenu';
 import UserMenuBox from '../../component/header/UserMenuBox'
+
 const UserMenuContainer = (props) => {
 
-    const [menuHovered, setMenuHovered] = useState(false);
-    const [childHovered, setChildHovered] = useState(false);
+    const menuRef = useRef(null);
+    const menuItems = getItems(props.handleLogout, store.getState().user && store.getState().user.admin)
+    const [visible, setVisible] = useState(false);
 
-    const OnMenuMouseEnter = () => setMenuHovered(true);
-    const OnItemMouseEnter = () => setChildHovered(true);
-    const OnMenuMouseLeave = () => {
-        setMenuHovered(false);
-    }
-    const OnItemMouseLeave = () => {
-        setChildHovered(false);
-    }
-    const dropdownItems = [
-        {
-            to: '#',
-            onClick: props.handleLogout,
-            text: 'Logout'
+    console.log('menuItems.current')
+    console.log(menuItems.current)
+    console.log(store.getState().user)
+    console.log(store.getState().user.admin)
+    function handleClickOutside(event) {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setVisible(false);
         }
-    ]
+    }
+
+    // eslint-disable-next-line
+    useEffect(() => {
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => { document.removeEventListener("mousedown", handleClickOutside); };
+    }, [menuRef]);
+
+    const toggleVisible = () => { setVisible(prevState => !prevState) }
 
     return (
         <div
             id={'user-menu-container'}
             className={' cursor-pointer'}
-            onMouseEnter = {OnMenuMouseEnter}
-            onMouseLeave={OnMenuMouseLeave}>
-            <UserMenuBox name={capitalize(props.name)} />
+            ref={menuRef}
+        >
+            <UserMenuBox
+                name={capitalize(props.name)}
+                toggleVisible={toggleVisible}
+            />
             <UserMenu
-                visible={childHovered || menuHovered}
-                mouseEnter={OnItemMouseEnter}
-                mouseLeave={OnItemMouseLeave}
-                items={dropdownItems}
+                visible={visible}
+                items={menuItems}
             />
         </div>
     )

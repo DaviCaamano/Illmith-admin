@@ -8,15 +8,32 @@ const Navbar = (props) => {
         <div id="navbar-links">
             {
                 props.navElements.map(
-                    (element) =>
-                        <Link
-                            key={element.name}
-                            to={element.external? {pathname: element.to}: element.to}
-                            className={`header-element ${element.to === location.pathname? 'header-element-current-page': ''}`}
-                            target={element.external? 'blank': ''}
-                        >
-                            {element.name}&nbsp;
-                        </Link>
+                    (item) => {
+                        if(item.external || item.external_same_page)
+                            return (
+                                <a
+                                    key={item.name}
+                                    href={item.to}
+                                    className={`header-element ${item.to === location.pathname ? 'header-element-current-page' : ''}`}
+                                    target={item.external ? 'blank' : item.external_same_page ? '_self' : ''}
+                                >
+                                    {item.name}&nbsp;
+                                </a>
+                            )
+                        else return (
+                            <Link
+                                key={item.name}
+                                to={item.to}
+                                className={
+                                    `header-element ${item.to === location.pathname 
+                                    ? 'header-element-current-page' 
+                                    : ''}`
+                                }
+                            >
+                                {item.name}&nbsp;
+                            </Link>
+                        )
+                    }
                 )
             }
         </div>

@@ -36,6 +36,7 @@ const UserContainer = (props) => {
                                 setUserRegistrationModalVisible={context.setUserRegistrationModalVisible}
                                 setResetPasswordVisible={context.setResetPasswordVisible}
                                 setLoginCookies={context.setLoginCookies}
+                                alert={alert.alert}
                             />
                             <RegisterUserContainer
                                 modalVisible={context.userRegistrationModalVisible}

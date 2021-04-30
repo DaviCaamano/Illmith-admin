@@ -15,6 +15,12 @@ const codes = {
                 code: 'TMA_LOGIN'
             }
         },
+        Logout: {
+            generic: {
+                message: 'Logout Error.',
+                code: 'NA_LOGOUT'
+            }
+        },
         UserRegistration: {
             generic: {
                 message: 'Error Registering User',
