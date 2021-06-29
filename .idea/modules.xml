@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Sennos.iml" filepath="$PROJECT_DIR$/.idea/Sennos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Sennos-Admin.iml" filepath="$PROJECT_DIR$/.idea/Sennos-Admin.iml" />
     </modules>
   </component>
 </project>

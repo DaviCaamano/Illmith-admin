@@ -1,0 +1,97 @@
+.files input {
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 60px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+}
+
+.files input:focus{
+    outline: 2px dashed #92b0b3;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    border:1px solid #92b0b3;
+}
+
+.files{
+    position:relative;
+}
+
+.files:after {
+    pointer-events: none;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 40px;
+    right: 0;
+    height: 40px;
+    content: "";
+    background-image: url('../../../resources/img/File Download Icon.png');
+    display: block;
+    margin: 0 auto;
+    background-size: 75%;
+    background-repeat: no-repeat;
+}
+
+.files:before {
+    position: absolute;
+    bottom: -12px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 57px;
+    content: " or drag it here. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.article-banner-container{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 30px 0 0 0;
+    top: -20px;
+    margin-bottom: 50px;
+}
+
+
+.thumbnail-cropper-canvas-container{
+    padding: 10px 0;
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.ReactCrop__image{
+    max-height: 1000px;
+}
+
+.remove-article-banner{
+    position: absolute;
+    bottom: 25px;
+    right: 35px;
+    color: white;
+    font-size: 25px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    cursor: pointer;
+    display:none;
+}
+
+.preview-container{
+    height: 100%;
+    position: relative;
+}
+
+.preview-container:hover > .remove-article-banner{
+    display: inline-block !important;
+}
+

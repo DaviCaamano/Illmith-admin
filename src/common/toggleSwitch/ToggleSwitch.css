@@ -1,0 +1,52 @@
+.toggle-container {
+    cursor: pointer;
+    user-select: none;
+    border-radius: 0;
+    position: relative;
+    border: 1px solid #282c34;
+    background-color: #282c34;
+    display: inline-block;
+}
+
+.toggle-container.checked {
+    border: 1px solid #c0a333;
+    background-color: #c0a333;
+}
+
+.dialog-button {
+    cursor: pointer;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    height: 100%;
+    display: flex;
+    width: 50%;
+    border-radius: 0;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.dialog-button.checked {
+    left: 50%;
+}
+
+.toggle-switch-check, .toggle-switch-cross{
+    fill: white;
+}
+
+.toggle-switch-check{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 50%;
+    height: 100%;
+}
+.toggle-switch-cross{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 50%;
+    height: 100%;
+}

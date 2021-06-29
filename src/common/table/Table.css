@@ -1,0 +1,213 @@
+th {
+    background-color: #282c34 !important;
+    border-bottom: 2px solid #8e8e8e !important;
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 10px 0 10px 10px;
+}
+
+
+.ctable{
+    table-layout:fixed;
+    width: 100%;
+    border-collapse: collapse;
+    display: table;
+}
+
+table, tr, td{
+    height: 1px;
+}
+
+
+.ctable-row:not(.active){
+}
+
+.ctable-row.active{
+    border-bottom: 1px solid #dee2e6;
+}
+
+.ctable-row.active > .ctable-cell > .cell-wrapper{
+    max-height: 500px !important;
+    padding: 5px 10px 5px 10px !important;
+}
+
+.cell-wrapper{
+    padding: 0 10px 0 10px;
+}
+
+.cell-wrapper{
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ctable-cell{
+    display: table-cell;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+.checkbox-wrapper{
+    position: relative;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.selector-cell-checkbox{
+    height: 18px;
+    width: 18px;
+    position: relative;
+    cursor: pointer;
+    position: relative;
+    left: -2px;
+}
+
+.cell-wrapper.child{
+    max-height: 0;
+    transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+    overflow: hidden;
+    padding: 0 10px 0 10px !important;
+}
+
+
+.editable-cell-container {
+    display: inline-block;
+    flex-grow: 100;
+    float: right;
+}
+
+.cell{
+    display: inline-block;
+    flex-grow: 100;
+    float: right;
+}
+
+.expand-icon-img{
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin-right: 2px;
+    margin-left: 3px;
+    float: left;
+    transition: transform .10s;
+}
+
+.expand-icon-img.expanded{
+    transform: rotate(90deg);
+}
+
+.expand-icon-indent{
+    display: inline-block;
+    width: 18px;
+}
+
+
+.ctable-search{
+    margin-left: auto;
+    width: 75% !important;
+    position: relative;
+    padding-right: 10px;
+}
+
+.ctable-search-icon{
+    position: absolute;
+    height: 24px;
+    left: 10px;
+    top: 8px;
+    opacity: 0.5;
+}
+
+
+.cell-button{
+    border: 0;
+    height: 24px;
+    width: 24px;
+    padding: 3px 7px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(calc(-50% - 3px));
+    right: 0;
+    margin-top: 3px;
+    margin-right: 3px;
+    opacity: .5;
+    display: none;
+}
+
+.cell-copy-button{
+    background: url('../../resources/img/copy icon.svg') no-repeat;
+    background-size: cover;
+}
+
+.cell-edit-button{
+    background: url('../../resources/img/edit icon.svg') no-repeat;
+    background-size: cover;
+    right: 25px;
+    transform: translateY(calc(-50% - 2px));
+}
+
+.cell-wrapper:hover > .editable-cell-container:hover > .cell-button,
+.cell-wrapper:hover > .cell > .cell-button{
+    display: block;
+}
+
+.cell-delete-container{
+    height: 100%;
+    width: 26px;
+    padding: 0px 10px 0px 0px !important;
+    max-height: 24px;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.row-button{
+    position: absolute;
+    top: 5px;
+    border: 0;
+    padding: 0;
+    opacity: .5;
+}
+
+.row-button.right{
+    right: 0;
+}
+
+.row-button.left{
+    left: 0;
+}
+
+.row-button.edit{
+    background: url('../../resources/img/edit icon.svg') no-repeat;
+    background-size: cover;
+    top: 7px;
+    height: 24px;
+    width: 24px;
+}
+
+.row-button.delete{
+    background: url('../../resources/img/delete icon.svg') no-repeat;
+    background-size: cover;
+    height: 25px;
+    width: 25px;
+}
+
+.ctable tr{
+    display: table-row;
+    background-color: white;
+    width: 100%;
+}
+
+
+.ctable-cell-indent{
+    display: inline-block;
+    width: 16px;
+}

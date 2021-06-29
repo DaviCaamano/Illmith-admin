@@ -1,0 +1,13 @@
+#body{
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 75px);
+    display: flex;
+    padding-bottom: 75px; /* Footer Height */
+}
+
+#body-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}

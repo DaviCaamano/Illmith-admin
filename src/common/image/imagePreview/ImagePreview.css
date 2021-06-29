@@ -1,0 +1,33 @@
+
+.preview-banner{
+    max-width:1000px
+}
+
+.preview-banner-border{
+    position: absolute;
+    height: calc(100% + 16px);
+    width: calc(100% + 16px);
+    border: 60px solid transparent;
+    border-image: url('../../../resources/img/Alert Border.png') 60 stretch;
+    filter: drop-shadow(0px 1px 2px black);
+    top: -8px;
+    left: -8px;
+}
+
+.preview-banner-border.inner{
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
+    top: 30px;
+    left: 30px;
+}
+
+.preview-banner-staples{
+    position: absolute;
+    height: calc(100% - 60px);
+    width: calc(100% - 60px);
+    border: 61px solid transparent;
+    border-image: url('../../../resources/img/Alert Border.png') 61 stretch;
+    filter: drop-shadow(0px 1px 2px black);
+    top: 30px;
+    left: 30px;
+}

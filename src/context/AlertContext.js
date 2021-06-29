@@ -1,47 +1,30 @@
-import React, {useState, createContext} from 'react';
+import React, {useState, createContext, useEffect} from 'react';
+import LoadingModalContainer from "../common/modal/loadingModal/LoadingModalContainer";
 
 //Contexts
 const { Provider, Consumer} = createContext({});
 
+const   TEN_SECONDS = 10000,
+        HALF_MINUTE = 30000,
+        MINUTE = 60000
 const AlertProvider = (props) => {
 
-    //Modal Visibility
+    //Modal
     const [height, setHeight] = useState('');
     const [width, setWidth] = useState('');
     const [visible, setVisible] = useState(false);
+    const [loadingVisible, setLoadingVisible] = useState(false);
     const [content, setContent] = useState('');
     const [buttonInfo, setButtonInfo] = useState({});
 
-    const close = () => {
+    //Nav Alert
+    const [navVisible, setNavVisible] = useState(false);
+    const [navContent, setNavContent] = useState('');
+    const [navAlertDuration, setNavAlertDuration] = useState(0);
+    const [closeTimeout, setCloseTimeout] = useState(0);
 
-        setVisible(false);
-    }
-
-    /**
-     @params
-     modalContent: [text or JSX]: content to be displayed on Alert.
-     type [any]: The following is a numbered list for the types of values you can enter for type
-                Each focuses on changing the type of buttons that will display with the alert.
-         (1)value: JSON: {
-            confirm: [function],
-            cancel: [function],
-            confirmText:[string] (optional),
-            cancelText: [string] (optional)
-        }
-            description: creates a modal with a pair of buttons, one representing confirm, the other cancel.
-            Must be paired with buttonType.confirm and buttonType.cancel.
-            (required) buttonType.confirm [function]:
-                A function to run when the confirm button is clicked.
-            (required) buttonType.cancel [function]
-                A function to run when the cancel button is clicked.
-            (optional) buttonType.confirmText [string]
-                The text displayed on the confirm button.
-            (optional) buttonType.cancelText [string]
-                The text displayed on the cancel button.
-     * @returns {JSX.Element}
-     * @constructor
-     */
-
+    /** Alert Modal Functions */
+    const close = () => { setVisible(false); }
 
     /**
      * A confirm prompt which accepts functions for confirm and cancel.
@@ -74,13 +57,49 @@ const AlertProvider = (props) => {
      * @param height - Fixed height of the modal.
      * @param width - Fixed width of the modal.
      */
-    const alert = (modalContent, height, width) => {
+    const alert = (modalContent, height, width, buttonText) => {
 
         if(height) setHeight(height);
         if(width) setWidth(width);
         setContent(modalContent);
+        setButtonInfo(buttonText)
         setVisible(true);
     }
+    /** End of Alert Modal Functions */
+
+    /** Nav Alert Functions */
+    useEffect(() => {
+
+        if(navContent) setNavVisible(true)
+        // eslint-disable-next-line
+    }, [navContent]);
+
+    useEffect(() => {
+
+        clearTimeout(closeTimeout);
+        if(navAlertDuration)
+            setCloseTimeout(setTimeout(() => { setNavVisible(false); }, navAlertDuration))
+        // eslint-disable-next-line
+    }, [navAlertDuration])
+
+    const navAlert = (contents, newDuration = 'short') => {
+
+        let milliseconds;
+        if(newDuration === 'short') milliseconds = TEN_SECONDS;
+        else if(newDuration === 'medium') milliseconds = HALF_MINUTE;
+        else if(newDuration === 'minute') milliseconds = MINUTE;
+        else if(newDuration === 'permanent' || newDuration === 'perm') milliseconds = null;
+        setNavAlertDuration(milliseconds);
+        setNavContent(contents)
+    }
+
+    const dismissNavAlert = () => setNavVisible(false);
+    /** End of Nav Alert Functions */
+
+    /** Loading Screen Functions */
+    const startLoading = () => { setLoadingVisible(true) };
+    const stopLoading = () => { setLoadingVisible(false) };
+    /** End of Screen Functions */
 
     return (
         <Provider value={{
@@ -97,8 +116,22 @@ const AlertProvider = (props) => {
             close,
             alert,
             confirm,
+            //Navbar Alert
+            navAlert,
+            dismissNavAlert,
+            navVisible,
+            setNavVisible,
+            navContent,
+            setNavContent,
+            //Loading Pause Screen
+            loadingVisible,
+            startLoading,
+            stopLoading
         }}>
-            {props.children}
+            <LoadingModalContainer visible={loadingVisible} />
+            <Consumer>
+                {props.children}
+            </Consumer>
         </Provider>
     )
 }

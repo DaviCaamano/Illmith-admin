@@ -1,0 +1,220 @@
+.table-wrapper {
+    width: 100%;
+    border: solid 1px darkgray;
+    border-radius: 0 8px 8px 8px;
+    min-height: 410px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+table, tr, td{
+    height: 1px;
+}
+
+.table{
+    z-index: 6;
+    margin-bottom: unset;
+}
+.arrow-cel{
+    color:gray;
+    width: 10px;
+    font-size: 14px;
+    font-weight: 999;
+}
+
+.active, .td:hover {
+
+}
+
+.expanded-content{
+    position: relative;
+    max-height: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+    background-color: #f1f1f1;
+    margin: 0;
+}
+
+.expanded-content.center {
+    display: flex;
+    justify-content: center;
+}
+
+.table td{
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    background-color: white;
+    cursor: default;
+}
+
+.expanded-content:hover > .cell-copy-button,
+td:hover > .cell-copy-button,
+.expanded-content:hover > .cell-edit-button,
+td:hover > .cell-edit-button,
+.expanded-content:hover > .cell-delete-button,
+td:hover > .cell-delete-button{
+    display: table-cell;
+}
+
+
+th {
+    background-color: #282c34 !important;
+    border-bottom: 1px solid #8e8e8e !important;
+}
+
+td {
+    position: relative;
+    padding-right: 24px;
+}
+
+.cell-button{
+    border: 0;
+    height: 24px;
+    width: 24px;
+    padding: 3px 7px;
+    position: absolute;
+    font-size: 12px;
+    top: 0;
+    right: 0;
+    margin-top: 3px;
+    margin-right: 3px;
+    opacity: .5;
+    display: none;
+}
+
+.cell-copy-button{
+    background: url('../../../resources/img/copy icon.png') no-repeat;
+    background-size: cover;
+    margin-top: 14px;
+}
+
+.cell-delete-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 24px;
+    padding: 12px 0 !important;
+}
+
+.cell-delete-button{
+    background: url('../../../resources/img/delete icon.png') no-repeat;
+    background-size: cover;
+    border: 0;
+    padding: 0;
+    height: 24px;
+    width: 24px;
+    opacity: .5;
+}
+
+.table-label{
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+.editable-cell{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.collapsable-table-row-per-page-select {
+    background-size: 8px !important;
+    background: white url('../../../resources/img/select down icon.svg') no-repeat right 4px bottom 40%;
+    padding: 0 15px 0 6px !important;
+    text-align-last:center;
+}
+
+.collapsable-table-header-container{
+    display: flex;
+    align-items: center;
+}
+
+.pagination-table{
+    position: absolute;
+    right: 10px;
+    bottom:0;
+}
+
+.pagination-columns > tr > th:not(current-page){
+    border: none !important;
+}
+
+.pagination-columns > tr > th:not(current-page):hover{
+    border: 1px darkgray !important;
+    color: white;
+    background-color: lightgray !important;
+}
+
+.pagination-columns > tr > th.current-page{
+    border: 1px darkgray !important;
+    color: white;
+    background-color: #282c34 !important;
+}
+.pagination-columns > tr >th{
+    background-color: transparent !important;
+    line-height: 24px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    background-size: 25%;
+    width: 36px;
+    max-width: 36px;
+    text-align: center;
+    padding: 0;
+}
+
+.pagination-columns > tr > th > button{
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 0;
+    border: none;
+}
+
+.page-arrow-button{
+    background-color: transparent;
+    height: 24px;
+    width: 12px;
+    background-repeat: no-repeat;
+    border: none;
+    display:block;
+    padding: 0;
+    background-size: contain;
+}
+
+.page-arrow-button-cell{
+    padding: 0 !important;
+    height: 24px !important;
+    width: 12px !important;
+}
+
+.table-search{
+    margin-left: auto;
+    width: 75% !important;
+    position: relative;
+    padding-right: 10px;
+}
+
+.table-search-icon{
+    opacity: 0.5;
+    height: 24px;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+}
+
+.selector-cell-checkbox{
+    height: 24px;
+    width: 24px;
+    top: 50%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}

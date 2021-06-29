@@ -1,0 +1,11 @@
+.image-manager-file-wrapper {
+    width: 100%;
+    border: solid 1px darkgray;
+    border-radius: 0 8px 8px 8px;
+    min-height: 410px;
+}
+
+
+.ReactCrop:hover > .remove-article-banner{
+    display:inline-block !important;
+}

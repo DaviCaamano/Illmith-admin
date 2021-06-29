@@ -11,14 +11,14 @@ let Splash = (props) => {
                 id={'firstBox'}
                 className={'splash'
                     + (props.active === 0? ' splash-active': '')
-                    + (mounted? ' add-transition': '')}
+                    + (mounted? ' articleManager-transition': '')}
                  style={{ backgroundImage: `url("${props.previewImage1}")` }}
             />
             <div
                 id={'secondBox'}
                 className={'splash'
                     + (props.active === 1? ' splash-active': '')
-                    + (mounted? ' add-transition': '')}
+                    + (mounted? ' articleManager-transition': '')}
                 style={{ backgroundImage: `url("${props.previewImage2}")` }}
             />
             {props.children}

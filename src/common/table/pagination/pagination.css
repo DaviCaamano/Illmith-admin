@@ -1,0 +1,80 @@
+.pagination-columns > tr > th > button{
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    padding: 5px 10px;
+    margin: 0;
+    border: none;
+}
+
+.pagination-columns > tr > th{
+    background-color: transparent !important;
+    line-height: 18px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    background-size: 25%;
+    width: 32px;
+    max-width: 36px;
+    text-align: center;
+    padding: 0;
+}
+
+
+.pagination-upper-display{
+    position: relative;
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+.pagination-table{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.pagination-columns > tr > th:not(current-page){
+    border: none !important;
+}
+
+.pagination-columns > tr > th:not(current-page):hover{
+    border: 1px darkgray !important;
+    color: white;
+    background-color: lightgray !important;
+}
+
+.pagination-columns > tr > th.current-page{
+    border: 1px darkgray !important;
+    color: white;
+    background-color: #282c34 !important;
+}
+
+
+.collapsable-table-row-per-page-select {
+    background-size: 8px !important;
+    background: white url('../../../resources/img/select down icon.svg') no-repeat right 4px bottom 40%;
+    padding: 0 15px 0 6px !important;
+    text-align-last:center;
+}
+
+.collapsable-table-header-container{
+    display: flex;
+    align-items: center;
+}
+
+.page-arrow-button-cell{
+    padding: 0 !important;
+    height: 24px !important;
+    width: 12px !important;
+}
+.page-arrow-button{
+    background-color: transparent;
+    height: 24px;
+    width: 12px;
+    background-repeat: no-repeat;
+    border: none;
+    display:block;
+    padding: 0;
+    background-size: contain;
+}

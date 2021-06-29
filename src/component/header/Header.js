@@ -1,22 +1,65 @@
 import React from 'react';
-import '../../css/Header.css';
 
-//img
-import logo from '../../img/Logo Text.png'
+import { useSelector } from 'react-redux';
 
-import NavbarContainer from '../../container/header/NavContainer'
+//css
+import './Header.css';
+
+//resources
+import getElements from './utils/navbarElements';
+
+//components
+import Navbar from './navbar/Navbar';
+import NavbarUserInfo from './navbar/navbarUserInfo/NavbarUserInfo';
+
+//context
+import {UserContextConsumer} from '../../context/UserContext';
+import logo from "../../resources/img/header logo.webp";
+import {Link} from "react-router-dom";
 
 const Header = (props) => {
 
-    return (
-        <>
-            <div id="header-top-shadow" />
-            <div id="header">
-                <img id="logo" src={logo} alt={''}/>
-                <NavbarContainer/>
-            </div>
-        </>
-    )
-}
+    const navElements = useSelector(state => getElements(state.user && state.user.admin));
 
+    /**
+     <NavAlertContainer
+     visible={props.navVisible}
+     setVisible={props.setNavVisible}
+     content={props.navContent}
+     setContent={props.setNavContent}
+     />
+     */
+    return (
+        <div id={"header"}>
+            <table id='header-table'>
+                <tbody>
+                    <tr>
+                        <td id='header-left'>
+                            <Link to={'/'}>
+                                <img id="logo" src={logo} alt={''}/>
+                            </Link>
+                        </td>
+                        <td id='header-center'>
+                            <Navbar navElements={navElements} />
+                        </td>
+                        <td id='header-right'>
+                            <UserContextConsumer>
+                                {({raiseLoginModal, handleLogout}) =>
+                                    <NavbarUserInfo
+                                        raiseLoginModal={raiseLoginModal}
+                                        handleLogout={handleLogout}
+                                    >
+                                        <span>Logout</span>
+                                    </NavbarUserInfo>
+                                }
+                            </UserContextConsumer>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    );
+}
 export default Header;
+

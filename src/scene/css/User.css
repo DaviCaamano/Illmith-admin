@@ -1,0 +1,230 @@
+#login-form, #register-user-form, #reset-password-form {
+    height: 100%;
+    width: 100%;
+    padding: 15px 25px;
+    size: 600px 600px;
+}
+
+.user-title{
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.user-title-right{
+    font-size: 20px;
+    float: right;
+    position: relative;
+    bottom: 5px;
+}
+
+.title-link{
+    color: transparent;
+    text-decoration: none;
+    font-size: 30px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+    font-weight: 500;
+    background-color: #e3af4a;
+    background-image: linear-gradient(90deg, #e3af4a, #795b44);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+}
+
+.title-link:hover{
+    text-decoration: none;
+    color: transparent;
+}
+
+
+.login-label, .register-user-label, .reset-password-label{
+
+}
+
+/* Full-width input fields */
+.login-input, .register-user-input, .reset-password-input{
+    width: 100%;
+    padding: 8px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+/* Set a style for all buttons */
+#login-button, #register-user-button, #reset-password-button {
+    background-color: #282c34;
+    color: white;
+    padding: 14px 20px;
+    margin: 0;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+
+span.psw {
+    float: right;
+    padding-top: 10px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+/************/
+.user-menu{
+    border: 1px black;
+    background-color: #282c34;
+    padding: 3px 10px;
+    display: block;
+    transform: translatey(-5px);
+    filter: drop-shadow(0px 4px 6px black);
+    width: 5vw;
+    left: unset;
+    right: -5px;
+}
+
+.user-menu:hover{
+    cursor: pointer;
+}
+
+.user-menu-item{
+    width: 100%;
+    padding: 5px;
+    border-top: 1px lightgray;
+    border-bottom: 1px lightgray;
+    color: gray;
+}
+
+.user-menu-item:hover{
+    background-color: #282c34;
+    color: white;
+    cursor: pointer;
+}
+
+
+.user-menu-item-link{
+    color: white;
+}
+
+.user-menu-item-link:hover{
+    background-color: #4e5564;
+}
+
+#user-menu-container {
+    height: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+#user-menu-container:hover{
+    cursor: pointer;
+}
+
+.logged-user-welcome-text{
+    display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+}
+
+
+#logged-user-greeting{
+    margin-top: 10px;
+    width: 10vw;
+    text-overflow: ellipsis;
+    line-height: 18px;
+    display: inline-block;
+    text-align: center;
+    font-size:18px;
+    pointer-events: none;
+}
+
+
+#login-warning, #register-user-warning, #reset-password-warning{
+    height: 20px;
+    color: red;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.register-user-infobox{
+    background-color : #f1f1f1;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+.reset-password-infobox{
+    background-color : #f1f1f1;
+    padding: 16px;
+    margin-top: 20px;
+    padding-left: 10%;
+}
+
+.register-user-infobox-left {
+    width: 20%;
+    display: inline-block;
+}
+
+.register-user-infobox-right {
+    width: 72.5%;
+    display: inline-block;
+    margin-left: 5%;
+    font-size: 16px;
+}
+
+.warning-text{
+    text-align: right;
+    color: red;
+    position: relative;
+    top: 4px;
+    font-size: 14px;
+}
+
+.label-optional-tag{
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+    display: inline-block;
+}
